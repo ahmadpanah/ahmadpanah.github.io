@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seyed Hossein Ahmadpanah | Research Profile</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0c10;
+    --surface: #111318;
+    --surface2: #181c24;
+    --border: #1f2535;
+    --accent: #4f8ef7;
+    --accent2: #7dd3c0;
+    --accent3: #f0a05a;
+    --text: #e8eaf0;
+    --muted: #6b7592;
+    --muted2: #9aa3c0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Mono', monospace;
+    font-size: 14px;
+    line-height: 1.7;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* GRID BACKGROUND */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(79,142,247,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(79,142,247,0.04) 1px, transparent 1px);
+    background-size: 48px 48px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* NOISE OVERLAY */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.025'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.6;
+  }
+
+  .wrapper {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(10,12,16,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 14px 0;
+  }
+
+  nav .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-brand {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 15px;
+    color: var(--accent);
+    letter-spacing: 0.03em;
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--muted2);
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--accent); }
+
+  /* HERO */
+  .hero {
+    padding: 80px 0 60px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 48px;
+    align-items: start;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .hero-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(32px, 5vw, 52px);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    margin-bottom: 20px;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--accent2);
+  }
+
+  .hero-bio {
+    font-size: 14px;
+    color: var(--muted2);
+    max-width: 540px;
+    line-height: 1.8;
+    margin-bottom: 28px;
+  }
+
+  .hero-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 32px;
+  }
+
+  .tag {
+    font-size: 11px;
+    letter-spacing: 0.05em;
+    padding: 5px 12px;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    color: var(--muted2);
+    background: var(--surface);
+    font-family: 'DM Mono', monospace;
+  }
+
+  .tag.highlight {
+    border-color: rgba(79,142,247,0.4);
+    color: var(--accent);
+    background: rgba(79,142,247,0.07);
+  }
+
+  .hero-links {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: all 0.2s;
+    cursor: pointer;
+    border: none;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: #fff;
+  }
+
+  .btn-primary:hover {
+    background: #6fa3ff;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px rgba(79,142,247,0.25);
+  }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--muted2);
+    border: 1px solid var(--border);
+  }
+
+  .btn-outline:hover {
+    color: var(--text);
+    border-color: var(--muted);
+    background: var(--surface);
+  }
+
+  /* AVATAR BLOCK */
+  .avatar-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 2px;
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+  }
+
+  .avatar::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(79,142,247,0.08), transparent);
+    pointer-events: none;
+  }
+
+  .avatar-status {
+    font-size: 11px;
+    color: var(--accent2);
+    letter-spacing: 0.05em;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent2);
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  .avatar-meta {
+    font-size: 11px;
+    color: var(--muted);
+    text-align: center;
+    line-height: 1.8;
+  }
+
+  /* STATS ROW */
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin: 40px 0;
+  }
+
+  .stat {
+    background: var(--surface);
+    padding: 20px 24px;
+    text-align: center;
+  }
+
+  .stat-number {
+    font-family: 'Syne', sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--accent);
+    display: block;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .stat-label {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* SECTIONS */
+  section {
+    padding: 56px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+
+  .section-num {
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    padding: 4px 8px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    font-family: 'DM Mono', monospace;
+  }
+
+  h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--text);
+  }
+
+  /* PUBLICATIONS */
+  .pub-list { display: flex; flex-direction: column; gap: 16px; }
+
+  .pub-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid transparent;
+    padding: 20px 24px;
+    transition: all 0.2s;
+    position: relative;
+  }
+
+  .pub-card:hover {
+    border-color: var(--border);
+    border-left-color: var(--accent);
+    background: var(--surface2);
+    transform: translateX(2px);
+  }
+
+  .pub-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+  }
+
+  .pub-year {
+    font-size: 11px;
+    background: rgba(79,142,247,0.12);
+    color: var(--accent);
+    padding: 2px 8px;
+    border-radius: 1px;
+    letter-spacing: 0.05em;
+  }
+
+  .pub-venue {
+    font-size: 11px;
+    color: var(--accent2);
+    letter-spacing: 0.03em;
+  }
+
+  .pub-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 16px;
+    color: var(--text);
+    line-height: 1.4;
+    margin-bottom: 6px;
+  }
+
+  .pub-authors {
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .pub-doi {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 8px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .pub-doi:hover { color: var(--accent); }
+
+  /* EXPERIENCE */
+  .exp-list { display: flex; flex-direction: column; gap: 0; }
+
+  .exp-item {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 24px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+  }
+
+  .exp-item:last-child { border-bottom: none; }
+
+  .exp-date {
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+    padding-top: 2px;
+    line-height: 1.5;
+  }
+
+  .exp-role {
+    font-family: 'Syne', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 2px;
+  }
+
+  .exp-company {
+    font-size: 12px;
+    color: var(--accent2);
+    margin-bottom: 6px;
+  }
+
+  .exp-desc {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  /* SKILLS */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .skill-group {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 20px 24px;
+  }
+
+  .skill-group-title {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .skill-group-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .skill-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .chip {
+    font-size: 11px;
+    padding: 4px 10px;
+    background: var(--surface2);
+    color: var(--muted2);
+    border: 1px solid var(--border);
+    border-radius: 1px;
+    letter-spacing: 0.03em;
+    transition: all 0.15s;
+  }
+
+  .chip:hover {
+    color: var(--text);
+    border-color: var(--muted);
+  }
+
+  /* EDUCATION */
+  .edu-list { display: flex; flex-direction: column; gap: 16px; }
+
+  .edu-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 20px 24px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .edu-degree {
+    font-family: 'DM Serif Display', serif;
+    font-size: 17px;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+
+  .edu-inst {
+    font-size: 12px;
+    color: var(--muted2);
+  }
+
+  .edu-gpa {
+    text-align: right;
+  }
+
+  .gpa-val {
+    font-family: 'Syne', sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--accent3);
+    display: block;
+  }
+
+  .gpa-label {
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  /* CONTACT */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+
+  .contact-item {
+    background: var(--surface);
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: var(--muted2);
+    transition: all 0.2s;
+  }
+
+  .contact-item:hover {
+    background: var(--surface2);
+    color: var(--text);
+  }
+
+  .contact-icon {
+    font-size: 18px;
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .contact-label {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  .contact-val {
+    font-size: 12px;
+    color: var(--text);
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 32px 0;
+    text-align: center;
+  }
+
+  .footer-text {
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero > * { animation: fadeUp 0.5s ease both; }
+  .hero > *:nth-child(2) { animation-delay: 0.1s; }
+
+  /* ICON SVGs inline */
+  .icon { display: inline-flex; align-items: center; }
+
+  /* RESPONSIVE */
+  @media (max-width: 680px) {
+    .hero { grid-template-columns: 1fr; }
+    .avatar-block { flex-direction: row; align-items: center; }
+    .stats-row { grid-template-columns: repeat(2, 1fr); }
+    .skills-grid { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .exp-item { grid-template-columns: 1fr; gap: 4px; }
+    .nav-links { display: none; }
+    .edu-card { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrapper">
+    <a class="nav-brand" href="#">SHA / Research</a>
+    <ul class="nav-links">
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="wrapper">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div>
+      <div class="hero-eyebrow">PhD Researcher &amp; Software Engineer</div>
+      <h1>Seyed Hossein<br><em>Ahmadpanah</em></h1>
+      <p class="hero-bio">
+        Specializing in cloud-native systems, edge AI, and secure container orchestration.
+        Author of 15+ peer-reviewed publications in journals including <em>Future Generation Computer Systems</em>,
+        <em>Cluster Computing</em>, and <em>Ad Hoc Networks</em>.
+      </p>
+      <div class="hero-tags">
+        <span class="tag highlight">Edge AI</span>
+        <span class="tag highlight">Container Migration</span>
+        <span class="tag highlight">Federated Learning</span>
+        <span class="tag">LLM Optimization</span>
+        <span class="tag">DevOps</span>
+        <span class="tag">Zero Trust Security</span>
+        <span class="tag">IoT</span>
+      </div>
+      <div class="hero-links">
+        <a href="mailto:h.ahmadpanah@iau.ac.ir" class="btn btn-primary">
+          ✉ Contact Me
+        </a>
+        <a href="https://scholar.google.com" target="_blank" class="btn btn-outline">
+          ↗ Google Scholar
+        </a>
+        <a href="https://github.com/ahmadpanah" target="_blank" class="btn btn-outline">
+          ⌥ GitHub
+        </a>
+      </div>
+    </div>
+    <div class="avatar-block">
+      <div class="avatar"><img src="data:image/jpeg;base64,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" alt="Seyed Hossein Ahmadpanah"></div>
+      <div class="avatar-status">
+        <span class="dot"></span>
+        Open to collaboration
+      </div>
+      <div class="avatar-meta">
+        Islamic Azad University<br>
+        Tehran, Iran<br>
+        <span style="color: var(--accent); font-size: 12px;">CEO · YaaSaan</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats-row">
+    <div class="stat">
+      <span class="stat-number">15+</span>
+      <span class="stat-label">Publications</span>
+    </div>
+    <div class="stat">
+      <span class="stat-number">40+</span>
+      <span class="stat-label">BSc Projects Supervised</span>
+    </div>
+    <div class="stat">
+      <span class="stat-number">5+</span>
+      <span class="stat-label">MSc Theses Supervised</span>
+    </div>
+    <div class="stat">
+      <span class="stat-number">12+</span>
+      <span class="stat-label">Years Experience</span>
+    </div>
+  </div>
+
+  <!-- PUBLICATIONS -->
+  <section id="publications">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2>Selected Publications</h2>
+    </div>
+    <div class="pub-list">
+
+      <div class="pub-card">
+        <div class="pub-meta">
+          <span class="pub-year">2026</span>
+          <span class="pub-venue">Future Generation Computer Systems</span>
+        </div>
+        <div class="pub-title">Concord: A Scalable, Trace-Driven, and Reproducible Framework for Resilient Container Warming in Serverless IoT</div>
+        <div class="pub-authors">Seyed Hossein Ahmadpanah</div>
+        <a class="pub-doi" href="https://doi.org/10.1016/j.future.2026.108409" target="_blank">↗ doi:10.1016/j.future.2026.108409</a>
+      </div>
+
+      <div class="pub-card">
+        <div class="pub-meta">
+          <span class="pub-year">2026</span>
+          <span class="pub-venue">The Journal of Supercomputing</span>
+        </div>
+        <div class="pub-title">DYNTRACE-SEC: Adaptive Security for Containerized Environments via Load-Aware Segmentation and Trust-Driven Policy Specification</div>
+        <div class="pub-authors">Seyed Hossein Ahmadpanah &amp; Meghdad Mirabi</div>
+        <a class="pub-doi" href="https://doi.org/10.1007/s11227-026-08319-6" target="_blank">↗ doi:10.1007/s11227-026-08319-6</a>
+      </div>
+
+      <div class="pub-card">
+        <div class="pub-meta">
+          <span class="pub-year">2026</span>
+          <span class="pub-venue">Concurrency and Computation: Practice and Experience</span>
+        </div>
+        <div class="pub-title">The Cache Oracle: Preemptive Request Dispatching for I/O-Asymmetric Serverless Databases</div>
+        <div class="pub-authors">Seyed Hossein Ahmadpanah et al.</div>
+        <a class="pub-doi" href="https://doi.org/10.1002/cpe.70470" target="_blank">↗ doi:10.1002/cpe.70470</a>
+      </div>
+
+      <div class="pub-card">
+        <div class="pub-meta">
+          <span class="pub-year">2025</span>
+          <span class="pub-venue">Cluster Computing</span>
+        </div>
+        <div class="pub-title">FlexiMigrate: Enhancing Live Container Migration in Heterogeneous Computing Environments</div>
+        <div class="pub-authors">Seyed Hossein Ahmadpanah et al.</div>
+        <a class="pub-doi" href="https://doi.org/10.1007/s10586-025-05548-x" target="_blank">↗ doi:10.1007/s10586-025-05548-x</a>
+      </div>
+
+      <div class="pub-card">
+        <div class="pub-meta">
+          <span class="pub-year">2025</span>
+          <span class="pub-venue">Journal of Grid Computing</span>
+        </div>
+        <div class="pub-title">Cerebrum: A Proactive Federated Learning Framework for Multi-Objective Edge Workflow Scheduling</div>
+        <div class="pub-authors">Seyed Hossein Ahmadpanah &amp; Meghdad Mirabi</div>
+        <a class="pub-doi" href="https://doi.org/10.1007/s10723-025-09816-3" target="_blank">↗ doi:10.1007/s10723-025-09816-3</a>
+      </div>
+
+      <div class="pub-card">
+        <div class="pub-meta">
+          <span class="pub-year">2025</span>
+          <span class="pub-venue">Knowledge and Information Systems</span>
+        </div>
+        <div class="pub-title">Dynamic Token Pruning for LLMs: Leveraging Task-Specific Attention and Adaptive Thresholds</div>
+        <div class="pub-authors">Seyed Hossein Ahmadpanah, Sanaz Sobhanloo &amp; Pania Afsharfarnia</div>
+        <a class="pub-doi" href="https://doi.org/10.1007/s10115-025-02450-1" target="_blank">↗ doi:10.1007/s10115-025-02450-1</a>
+      </div>
+
+      <div class="pub-card">
+        <div class="pub-meta">
+          <span class="pub-year">2025</span>
+          <span class="pub-venue">Cluster Computing</span>
+        </div>
+        <div class="pub-title">ATLAS: Adaptive Threat-Learning Algorithm for Secure Container Migration in Heterogeneous Multi-Cloud Environments</div>
+        <div class="pub-authors">Seyed Hossein Ahmadpanah et al.</div>
+        <a class="pub-doi" href="https://doi.org/10.1007/s10586-025-05720-3" target="_blank">↗ doi:10.1007/s10586-025-05720-3</a>
+      </div>
+
+      <div class="pub-card">
+        <div class="pub-meta">
+          <span class="pub-year">2025</span>
+          <span class="pub-venue">Ad Hoc Networks</span>
+        </div>
+        <div class="pub-title">Collaborative Deployment of Large AI Models on the Edge: A Microservice Approach to Heterogeneous Training and Quantized Inference</div>
+        <div class="pub-authors">Seyed Hossein Ahmadpanah et al.</div>
+        <a class="pub-doi" href="https://doi.org/10.1016/j.adhoc.2025.104080" target="_blank">↗ doi:10.1016/j.adhoc.2025.104080</a>
+      </div>
+
+      <div class="pub-card">
+        <div class="pub-meta">
+          <span class="pub-year">2025</span>
+          <span class="pub-venue">Computing</span>
+        </div>
+        <div class="pub-title">Semantic-aware LLM Orchestration for Proactive Resource Management in Predictive Digital Twin Vehicular Networks</div>
+        <div class="pub-authors">Seyed Hossein Ahmadpanah</div>
+        <a class="pub-doi" href="https://doi.org/10.1007/s00607-025-01609-6" target="_blank">↗ doi:10.1007/s00607-025-01609-6</a>
+      </div>
+
+      <div class="pub-card">
+        <div class="pub-meta">
+          <span class="pub-year">2025</span>
+          <span class="pub-venue">Pervasive and Mobile Computing</span>
+        </div>
+        <div class="pub-title">DeSIST: Emergent Security in IoT through Decentralized Strategic Interactions — A Game-Theoretic Zero Trust Framework</div>
+        <div class="pub-authors">Seyed Hossein Ahmadpanah et al.</div>
+        <a class="pub-doi" href="https://doi.org/10.1016/j.pmcj.2025.102124" target="_blank">↗ doi:10.1016/j.pmcj.2025.102124</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2>Work Experience</h2>
+    </div>
+    <div class="exp-list">
+
+      <div class="exp-item">
+        <div class="exp-date">Feb 2025 – present</div>
+        <div>
+          <div class="exp-role">Chief Executive Officer</div>
+          <div class="exp-company">YaaSaan</div>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-date">Jun 2023 – present</div>
+        <div>
+          <div class="exp-role">Deputy CEO</div>
+          <div class="exp-company">Fankash — ICT Company for Tehran Municipality Employees</div>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-date">Feb 2021 – Jun 2024</div>
+        <div>
+          <div class="exp-role">Head of R&amp;D and Software Development</div>
+          <div class="exp-company">Asiatech Cloud</div>
+          <div class="exp-desc">Led research, production, and software development for cloud infrastructure products.</div>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-date">Sep 2022 – Feb 2024</div>
+        <div>
+          <div class="exp-role">Infrastructure and DevOps Consultant</div>
+          <div class="exp-company">Saman Kish Electronic Payment</div>
+          <div class="exp-desc">Provided infrastructure strategy and DevOps guidance.</div>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-date">Dec 2014 – Feb 2026</div>
+        <div>
+          <div class="exp-role">Chief Technology Officer (CTO)</div>
+          <div class="exp-company">Bahar Samaneh Shargh Co.</div>
+          <div class="exp-desc">Managed software research, production, and development over 11+ years.</div>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-date">Feb 2021 – present</div>
+        <div>
+          <div class="exp-role">Invited Lecturer – MSc Level</div>
+          <div class="exp-company">Pars Art and Architecture University</div>
+          <div class="exp-desc">Teaching graduate courses. Supervision and consultation of 5+ MSc theses.</div>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-date">Feb 2023 – present</div>
+        <div>
+          <div class="exp-role">Invited Lecturer – BSc Level</div>
+          <div class="exp-company">Kharazmi University</div>
+          <div class="exp-desc">Teaching undergraduate courses. Supervision of 40+ BSc projects.</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2>Education</h2>
+    </div>
+    <div class="edu-list">
+      <div class="edu-card">
+        <div>
+          <div class="edu-degree">PhD in Software Engineering</div>
+          <div class="edu-inst">Islamic Azad University &nbsp;·&nbsp; 2018 – 2025</div>
+        </div>
+        <div class="edu-gpa">
+          <span class="gpa-val">3.7</span>
+          <span class="gpa-label">GPA / 4.0</span>
+        </div>
+      </div>
+      <div class="edu-card">
+        <div>
+          <div class="edu-degree">Master's Degree in Computer Networks</div>
+          <div class="edu-inst">Islamic Azad University &nbsp;·&nbsp; 2017 – 2018</div>
+        </div>
+        <div class="edu-gpa">
+          <span class="gpa-val">4.0</span>
+          <span class="gpa-label">GPA / 4.0</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <h2>Technical Skills</h2>
+    </div>
+    <div class="skills-grid">
+
+      <div class="skill-group">
+        <div class="skill-group-title">Cloud &amp; Edge</div>
+        <div class="skill-chips">
+          <span class="chip">Kubernetes</span>
+          <span class="chip">Docker</span>
+          <span class="chip">Serverless</span>
+          <span class="chip">Multi-Cloud</span>
+          <span class="chip">Live Container Migration</span>
+          <span class="chip">Federated Learning</span>
+          <span class="chip">Edge AI</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-title">Programming</div>
+        <div class="skill-chips">
+          <span class="chip">Python</span>
+          <span class="chip">Bash</span>
+          <span class="chip">JavaScript</span>
+          <span class="chip">SQL</span>
+          <span class="chip">RESTful APIs</span>
+          <span class="chip">Android</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-title">DevOps &amp; Infra</div>
+        <div class="skill-chips">
+          <span class="chip">CI/CD Pipelines</span>
+          <span class="chip">Git</span>
+          <span class="chip">Helm</span>
+          <span class="chip">Prometheus</span>
+          <span class="chip">Grafana</span>
+          <span class="chip">IaC</span>
+          <span class="chip">Linux/Unix</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-title">Security &amp; Networking</div>
+        <div class="skill-chips">
+          <span class="chip">Zero Trust</span>
+          <span class="chip">Secure Migration</span>
+          <span class="chip">DDoS Mitigation</span>
+          <span class="chip">IoT Security</span>
+          <span class="chip">TLS/SSL</span>
+          <span class="chip">Cryptographic Protocols</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <h2>Get In Touch</h2>
+    </div>
+    <div class="contact-grid">
+      <a class="contact-item" href="mailto:h.ahmadpanah@iau.ac.ir">
+        <span class="contact-icon">✉</span>
+        <div>
+          <span class="contact-label">Email</span>
+          <span class="contact-val">h.ahmadpanah@iau.ac.ir</span>
+        </div>
+      </a>
+      <a class="contact-item" href="https://github.com/ahmadpanah" target="_blank">
+        <span class="contact-icon">⌥</span>
+        <div>
+          <span class="contact-label">GitHub</span>
+          <span class="contact-val">github.com/ahmadpanah</span>
+        </div>
+      </a>
+      <a class="contact-item" href="https://linkedin.com/in/ahmadpanah" target="_blank">
+        <span class="contact-icon">↗</span>
+        <div>
+          <span class="contact-label">LinkedIn</span>
+          <span class="contact-val">in/ahmadpanah</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <p class="footer-text">Seyed Hossein Ahmadpanah &nbsp;·&nbsp; Last updated March 2026 &nbsp;·&nbsp; Islamic Azad University</p>
+  </footer>
+
+</div>
+
+</body>
+</html>
